@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   Input: {
     color: COLORS.Noir,
     fontSize: 16,
-    fontFamily: "Roboto-Bold",
+    fontFamily: "RobotoBold",
     flex: 1,
     paddingLeft: 2,
   },

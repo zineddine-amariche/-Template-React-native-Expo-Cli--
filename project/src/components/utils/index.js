@@ -21,7 +21,7 @@ export const Txt = ({
       onTextLayout={onTextLayout}
       style={{
         fontSize: fontSize || 16,
-        fontFamily: fontFamily || "Roboto-Medium",
+        fontFamily: fontFamily || "RobotoMedium",
         color: color || COLORS.Vert1,
         fontWeight: Bold || "400",
         opacity: opacity || 1,
@@ -53,7 +53,7 @@ export const Head = ({
       onTextLayout={onTextLayout}
       style={{
         fontSize: fontSize || 18,
-        fontFamily: fontFamily || "Poppins-SemiBold",
+        fontFamily: fontFamily || "PoppinsSemiBold",
         color: color || COLORS.blueGreen,
         fontWeight: Bold || "400",
         opacity: opacity || 1,

@@ -67,7 +67,7 @@ const style = StyleSheet.create({
     marginVertical: 5,
     fontSize: 14,
     color: COLORS.white,
-    fontFamily:'Helvetica-Bold'
+    fontFamily:'HelveticaBold'
   },
   inputContainer: {
     height: 55,

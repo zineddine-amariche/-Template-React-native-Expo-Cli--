@@ -2,10 +2,10 @@ import * as Font from "expo-font";
 
 const UseFonts = async () => {
   await Font.loadAsync({
-    Gotu: require("../fonts/Gotu.ttf"),
-    OxygenLight: require("../fonts/Oxygen-Light.ttf"),
-    OxygenRegular: require("../fonts/Oxygen-Regular.ttf"),
-    OxygenBold: require("../fonts/Oxygen-Bold.ttf"),
+    Gotu: require("../src/Assets/fonts/Gotu.ttf"),
+    // OxygenLight: require("../src/Assets/fonts/Gotu.tff"),
+    // OxygenRegular: require("../src/Assets/fonts/Gotu.tff"),
+    // OxygenBold: require("../src/Assets/fonts/Gotu.tff"),
   }).catch((err) => console.log(err));
 };
 

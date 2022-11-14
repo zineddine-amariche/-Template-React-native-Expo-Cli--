@@ -6,7 +6,7 @@ import AuthStackScreen from "../Stack1Auth";
 
 const RootStack = createNativeStackNavigator();
 
-const Root = () => {
+const Root = ( ) => {
 
   const { user } = useSelector((state) => ({ ...state.auth }));
 
