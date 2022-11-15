@@ -25,7 +25,7 @@ const AuthLayout = ({ children, isFocused }) => {
 
       <View
         style={{
-          flex: 1 / 5,
+          flex: 1 / 4,
           justifyContent: "flex-end",
         }}
       >

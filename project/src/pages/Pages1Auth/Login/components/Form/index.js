@@ -1,5 +1,5 @@
 import { View, Text, TextInput, KeyboardAvoidingView } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Field, Form, Formik } from "formik";
 import { UseLogin } from "../../Hooks/UseLogin";
 import styles from "./styles";
@@ -12,7 +12,7 @@ import PrimaryInput from "../../../../../components/Input";
 import { COLORS } from "../../../../../theme";
 import Space from "../../../../../components/Space";
 
-const FormLogin = ({FocusHandeler,isFocused}) => {
+const FormLogin = ({ FocusHandeler, isFocused }) => {
   const {
     loginValues,
     validationSchema,
@@ -22,6 +22,10 @@ const FormLogin = ({FocusHandeler,isFocused}) => {
     HandlehidePass,
     onSubmit,
   } = UseLogin();
+
+
+
+
 
   return (
     <Animatable.View animation="fadeInUpBig" style={styles.containerForm}>
@@ -50,7 +54,7 @@ const FormLogin = ({FocusHandeler,isFocused}) => {
                 name={login}
                 label={"Identifiant"}
                 placeholder="Your full name"
-                style={[styles.Input, ]}
+                style={[styles.Input]}
                 errors={errors.login}
                 touched={touched.login}
                 value={login}
@@ -58,6 +62,7 @@ const FormLogin = ({FocusHandeler,isFocused}) => {
                 onChangeText={handleChange("login")}
                 FocusHandeler={FocusHandeler}
                 isFocused={isFocused}
+ 
               />
               {errors.login && touched.login ? (
                 <Animatable.View animation="fadeInLeft" duration={500}>
@@ -65,30 +70,30 @@ const FormLogin = ({FocusHandeler,isFocused}) => {
                 </Animatable.View>
               ) : null}
 
-      
-                <PrimaryInput
-                
-                  placeholder="Your password"
-                  name={password}
-                  id={password}
-                  value={password}
-                  onBlur={handleBlur("password")}
-                  onChangeText={handleChange("password")}
-                  Label="password"
-                  secureTextEntry={hidePass ? true : false}
-                  isPassword={"pass"}
-                  hidePass={hidePass}
-                  HandlehidePass={HandlehidePass}
-                  errors={errors.password}
-                  touched={touched.password}
-                  style={styles.Input}
-                  password={true}
-                  isFocused={isFocused}
-                  FocusHandeler={FocusHandeler}
-                  label={"Mot de passe "}
-                />
+              <PrimaryInput
+                placeholder="Your password"
+                name={password}
+                id={password}
+                value={password}
+                onBlur={handleBlur("password")}
+                onChangeText={handleChange("password")}
+                Label="password"
+                secureTextEntry={hidePass ? true : false}
+                isPassword={"pass"}
+                hidePass={hidePass}
+                HandlehidePass={HandlehidePass}
+                errors={errors.password}
+                touched={touched.password}
+                style={styles.Input}
+                password={true}
+                isFocused={isFocused}
+                FocusHandeler={FocusHandeler}
+                label={"Mot de passe "}
 
-                {/* <Icon
+
+              />
+
+              {/* <Icon
                   name={hidePass ? "eye-slash" : "eye"}
                   size={15}
                   color="grey"
@@ -114,8 +119,9 @@ const FormLogin = ({FocusHandeler,isFocused}) => {
               <Space />
               <View style={styles.containerButtons}>
                 <PrimaryButton
-                  onPress={()=>{handleSubmit()
-                    FocusHandeler(false)
+                  onPress={() => {
+                    handleSubmit();
+                    FocusHandeler(false);
                   }}
                   isSubmitting={isSubmitting}
                 >

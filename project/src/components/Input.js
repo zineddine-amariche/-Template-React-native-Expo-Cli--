@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { COLORS } from "../theme";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -13,11 +13,19 @@ const Input = ({
   onBlur,
   FocusHandeler,
   isFocused,
+
   onFocus = () => {},
   ...props
 }) => {
-  const [hidePassword, setHidePassword] = React.useState(password);
-  // const [isFocused, setIsFocused] = React.useState(false);
+  const [hidePassword, setHidePassword] = useState(password);
+  const [inputFocus, setInputFocus] = useState(false);
+
+  useEffect(() => {
+    if (!isFocused) {
+      setInputFocus(false);
+    }
+  }, [isFocused]);
+
   return (
     <View style={{}}>
       <Text style={style.label}>{label}</Text>
@@ -32,14 +40,15 @@ const Input = ({
               : COLORS.green2,
             alignItems: "center",
 
-            backgroundColor: isFocused ? COLORS.white : COLORS.white70,
+            backgroundColor: inputFocus ? COLORS.white : COLORS.white70,
           },
         ]}
       >
         <TextInput
-        placeholderTextColor={isFocused ? COLORS.white : COLORS.white}
+          placeholderTextColor={!inputFocus ? COLORS.white : COLORS.green1}
           onFocus={(item) => {
             FocusHandeler(true);
+            setInputFocus(true);
           }}
           onBlur={onBlur}
           onChangeText={onChangeText}
@@ -57,7 +66,10 @@ const Input = ({
           <Icon
             onPress={() => setHidePassword(!hidePassword)}
             name={hidePassword ? "eye-outline" : "eye-off-outline"}
-            style={{ color: isFocused ? COLORS.green2 : COLORS.green1, fontSize: 22 }}
+            style={{
+              color: isFocused ? COLORS.green2 : COLORS.green1,
+              fontSize: 22,
+            }}
           />
         )}
       </View>
