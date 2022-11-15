@@ -3,19 +3,19 @@ import loginService from "../Service";
 
 
 
-export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
-  // console.log('user', user)
-  try {
-    const token = thunkAPI.getState().token.token;
-    return await loginService.api(user, token);
-  } catch (error) {
-    const message =
-      (error.response && error.response.data) ||
-      error.message ||
-      error.toString();
-    return thunkAPI.rejectWithValue(message);
-  }
-});
+// export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
+//   // console.log('user', user)
+//   try {
+//     const token = thunkAPI.getState().token.token;
+//     return await loginService.api(user, token);
+//   } catch (error) {
+//     const message =
+//       (error.response && error.response.data) ||
+//       error.message ||
+//       error.toString();
+//     return thunkAPI.rejectWithValue(message);
+//   }
+// });
 
 const loginSlice = createSlice({
   name: "auth",
@@ -40,6 +40,9 @@ const loginSlice = createSlice({
       state.message = "";
       state.user = null;
     },
+    login : (state,action) =>{
+      state.isSuccess = action.payload
+    }
   },
 
   // extraReducers: (builder) => {
@@ -64,5 +67,5 @@ const loginSlice = createSlice({
   // },
 });
 
-export const { resetLogin ,Logout} = loginSlice.actions;
+export const { resetLogin ,Logout,login} = loginSlice.actions;
 export default loginSlice.reducer;

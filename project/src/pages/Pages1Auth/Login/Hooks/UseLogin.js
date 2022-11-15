@@ -3,6 +3,7 @@ import {fr} from 'yup-locales';
 import {setLocale} from 'yup';
 import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
+import { login } from '../../../../Redux/Features/Feature_2_authentification/Login/Slice';
 // import { dispatchLogin } from '../../../../Redux/Actions/Login';
 
 setLocale(fr);
@@ -33,7 +34,8 @@ export function UseLogin() {
 
   const dispatch = useDispatch();
   const onSubmit = async (values) => {
-    //  await dispatchLogin(dispatch, configHead, values,isLogged,loading)
+
+    dispatch(login(values));
   };
   const HandlehidePass = () => {
     setHidePass(!hidePass);
@@ -53,7 +55,7 @@ export function UseLogin() {
         25,
         'identifiant est trop long - doit être de 15 caractères maximum.',
       )
-      .required('identifiant est requis')
+      // .required('identifiant est requis')
       .min(
         4,
         'identifiant est trop court - doit comporter au moins 4 caractères.',
@@ -67,11 +69,8 @@ export function UseLogin() {
         4,
         'Le mot de passe est trop court - doit comporter au moins 4 caractères.',
       )
-      //   .matches(lowercaseRegEx,'Doit contenir un caractère alphabétique minuscule!',)
-      //   .matches(uppercaseRegEx,'Doit contenir un caractère alphabétique majuscule!',)
-      // .matches(numericRegEx, 'Doit contenir un caractère numérique!')
-      //   .matches(specialsRegEx, 'Doit contenir un caractère spécial')
-      .required('Mot de passe requis'),
+ 
+      // .required('Mot de passe requis'),
   });
 
   return {

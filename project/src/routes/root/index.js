@@ -8,9 +8,9 @@ const RootStack = createNativeStackNavigator();
 
 const Root = ( ) => {
 
-  const { user } = useSelector((state) => ({ ...state.auth }));
-
-    if (!true) {
+  const { isSuccess } = useSelector((state) => ({ ...state.auth }));
+console.log('user', isSuccess)
+    if (isSuccess) {
       return (
         <RootStack.Navigator
           screenOptions={{

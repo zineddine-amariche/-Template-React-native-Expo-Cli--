@@ -2,7 +2,7 @@ import React from "react";
 import { DrawerContent } from "./CustomDrawer";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import BottomTabOrange from "../OrangeBottom";
+ import Home from "../../../pages/Pages2App/home"
 
 const Drawer = createDrawerNavigator();
 const DrawerScreen = (props) => {

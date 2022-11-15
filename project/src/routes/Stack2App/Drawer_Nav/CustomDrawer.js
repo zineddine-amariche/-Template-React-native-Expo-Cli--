@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import icon3 from "../../../Assets/Img/icon24ChevronRightDefault(2).png";
 // import { Head, Txt } from "../../../components/utils";
 import { COLORS } from "../../../theme";
-// import Space from "../../../components/Space";
+import Space from "../../../components/Space";
 // import LinearGradient from "react-native-linear-gradient";
 import {LinearGradient} from 'expo-linear-gradient';
 // import HView from "../../../components/views/HView/HView";
@@ -27,34 +27,36 @@ import {LinearGradient} from 'expo-linear-gradient';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 // import { Logout } from "../../../redux/Features/authentification/Login/Slice";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
+import { Head, Txt } from "../../../components/utils";
+import HView from "../../../components/HView/HView";
 
-// const Menue = [
-//   {
-//     name: "Settings",
-//     url: require("../../../Assets/Img/icon5.png"),
-//     path: "Settings",
-//   },
-//   {
-//     name: "About Diaspora",
-//     url: require("../../../Assets/Img/icon4.png"),
-//     path: "AboutDiaspora",
-//   },
-//   {
-//     name: "Terms & Conditions",
-//     url: require("../../../Assets/Img/icon3.png"),
-//     path: "TermsConditions",
-//   },
-//   {
-//     name: "Privaci Policy",
-//     url: require("../../../Assets/Img/icon2.png"),
-//     path: "PrivaciPolicy",
-//   },
-//   {
-//     name: "Contact Us",
-//     url: require("../../../Assets/Img/icon1.png"),
-//     path: "ContactUs",
-//   },
-// ];
+const Menue = [
+  {
+    name: "Settings",
+    // url: require("../../../Assets/Img/icon5.png"),
+    path: "Settings",
+  },
+  {
+    name: "About liveresto",
+    // url: require("../../../Assets/Img/icon4.png"),
+    path: "AboutDiaspora",
+  },
+  {
+    name: "Terms & Conditions",
+    // url: require("../../../Assets/Img/icon3.png"),
+    path: "TermsConditions",
+  },
+  {
+    name: "Privacy Policy",
+    // url: require("../../../Assets/Img/icon2.png"),
+    path: "PrivaciPolicy",
+  },
+  {
+    name: "Contact Us",
+    // url: require("../../../Assets/Img/icon1.png"),
+    path: "ContactUs",
+  },
+];
 
 export function DrawerContent(props) {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -81,7 +83,7 @@ export function DrawerContent(props) {
             }}
             style={{paddingLeft:15}}
           >
-            <Image source={icon24X} style={styles.close} />
+            {/* <Image source={icon24X} style={styles.close} /> */}
           </TouchableOpacity>
           <Txt color={COLORS.white} fontSize={20} >
             Menue
@@ -97,14 +99,14 @@ export function DrawerContent(props) {
           <View style={styles.drawerContent}>
             <View style={styles.userInfoSection}>
               <HView>
-                <Avatar.Image source={icon2} size={66} />
+                {/* <Avatar.Image source={icon2} size={66} /> */}
                 <View style={{ marginLeft: 15, flexDirection: "column" }}>
                   <View>
                     <Head color={COLORS.white} fontSize={20}>
-                      Bravo Bessa
+                      Jhon Dho
                     </Head>
                     <Txt fontSize={14} color={COLORS.white}>
-                      bravobessa@diaspora.com
+                    Jhon-Dho@liveresto.com
                     </Txt>
                     <Space space={5} />
                     <Txt fontSize={14} color={COLORS.white}>
@@ -112,7 +114,7 @@ export function DrawerContent(props) {
                     </Txt>
                   </View>
                 </View>
-                <Image source={icon3} style={{ marginLeft: 7 }} />
+                {/* <Image source={icon3} style={{ marginLeft: 7 }} /> */}
               </HView>
             </View>
             <Space space={20} />
@@ -131,18 +133,18 @@ export function DrawerContent(props) {
                             style={styles.drawerItem}
                           >
                             <View style={styles.BoxIcon}>
-                              <Image source={item.url} />
+                              {/* <Image source={item.url} /> */}
                             </View>
                             <Txt color={COLORS.white}>{item.name}</Txt>
                           </HView>
                         </TouchableOpacity>
-                        {Menue.length === index + 1 ? null : (
+                        {/* {Menue.length === index + 1 ? null : (
                           <Line
                             height={1}
                             color={COLORS.greyblue}
                             width={"77%"}
                           />
-                        )}
+                        )} */}
                       </View>
                     );
                   })}
@@ -152,13 +154,13 @@ export function DrawerContent(props) {
         </Drawer.Section>
 
         <Drawer.Section>
-          <PaleGreyButton onPress={clearAsyncStorage} width={"93%"}>
+          {/* <PaleGreyButton onPress={clearAsyncStorage} width={"93%"}>
             log out
-          </PaleGreyButton>
+          </PaleGreyButton> */}
           <Space />
           <View style={{ alignSelf: "center" }}>
             <Txt color={COLORS.white} style={{ marginRight: 20 }}>
-              © Diaspo
+              © Live Resto Delivery
             </Txt>
           </View>
           <Space />
