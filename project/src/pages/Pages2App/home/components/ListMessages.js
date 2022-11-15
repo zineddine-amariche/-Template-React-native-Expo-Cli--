@@ -1,14 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import RenderSendMessage from "./renderSendMessage";
+import RenderResMessage from "./renderResMessage";
 
 const ListMessages = () => {
   return (
     <View>
-      <Text>ListMessages</Text>
+      <RenderSendMessage />
+      <RenderResMessage />
     </View>
-  )
-}
+  );
+};
 
-export default ListMessages
+export default ListMessages;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

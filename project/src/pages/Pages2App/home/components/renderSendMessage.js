@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const renderSendMessage = () => {
+const RenderSendMessage = () => {
   return (
     <View>
       <Text>renderSendMessage</Text>
@@ -9,6 +9,6 @@ const renderSendMessage = () => {
   )
 }
 
-export default renderSendMessage
+export default RenderSendMessage
 
 const styles = StyleSheet.create({})

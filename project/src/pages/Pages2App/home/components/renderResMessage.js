@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const renderResMessage = () => {
+const RenderResMessage = () => {
   return (
-    <View>
+    <View style={{flex:1}}>
       <Text>renderResMessage</Text>
     </View>
   )
 }
 
-export default renderResMessage
+export default RenderResMessage
 
 const styles = StyleSheet.create({})
