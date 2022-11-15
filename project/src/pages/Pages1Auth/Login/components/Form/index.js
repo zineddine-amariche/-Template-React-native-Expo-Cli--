@@ -9,8 +9,10 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import * as Animatable from "react-native-animatable";
 import { PrimaryButton } from "../../../../../components/Buttons";
 import PrimaryInput from "../../../../../components/Input";
+import { COLORS } from "../../../../../theme";
+import Space from "../../../../../components/Space";
 
-const FormLogin = () => {
+const FormLogin = ({FocusHandeler,isFocused}) => {
   const {
     loginValues,
     validationSchema,
@@ -41,18 +43,21 @@ const FormLogin = () => {
           isSubmitting,
         }) => {
           const { login, password } = values;
+
           return (
             <>
               <PrimaryInput
                 name={login}
                 label={"Identifiant"}
                 placeholder="Your full name"
-                style={styles.Input}
+                style={[styles.Input, ]}
                 errors={errors.login}
                 touched={touched.login}
                 value={login}
                 onBlur={handleBlur("login")}
                 onChangeText={handleChange("login")}
+                FocusHandeler={FocusHandeler}
+                isFocused={isFocused}
               />
               {errors.login && touched.login ? (
                 <Animatable.View animation="fadeInLeft" duration={500}>
@@ -60,18 +65,16 @@ const FormLogin = () => {
                 </Animatable.View>
               ) : null}
 
-              <View style={styles.LoginText}>
-                <Text style={styles.label}>Mot de passe </Text>
-              </View>
-              <View style={styles.row}>
+      
                 <PrimaryInput
+                
                   placeholder="Your password"
                   name={password}
                   id={password}
                   value={password}
-                  onBlur={handleBlur("userPassword")}
-                  onChangeText={handleChange("userPassword")}
-                  Label="Password"
+                  onBlur={handleBlur("password")}
+                  onChangeText={handleChange("password")}
+                  Label="password"
                   secureTextEntry={hidePass ? true : false}
                   isPassword={"pass"}
                   hidePass={hidePass}
@@ -79,16 +82,19 @@ const FormLogin = () => {
                   errors={errors.password}
                   touched={touched.password}
                   style={styles.Input}
+                  password={true}
+                  isFocused={isFocused}
+                  FocusHandeler={FocusHandeler}
+                  label={"Mot de passe "}
                 />
 
-                <Icon
+                {/* <Icon
                   name={hidePass ? "eye-slash" : "eye"}
                   size={15}
                   color="grey"
                   onPress={HandlehidePass}
                   style={styles.iconPass}
-                />
-              </View>
+                /> */}
 
               {errors.password && touched.password ? (
                 <Animatable.View animation="fadeInLeft" duration={500}>
@@ -104,9 +110,13 @@ const FormLogin = () => {
                 />
                 <Text style={styles.labelText}>Se souvenir de moi?</Text>
               </View>
+
+              <Space />
               <View style={styles.containerButtons}>
                 <PrimaryButton
-                  onPress={handleSubmit}
+                  onPress={()=>{handleSubmit()
+                    FocusHandeler(false)
+                  }}
                   isSubmitting={isSubmitting}
                 >
                   Connexion

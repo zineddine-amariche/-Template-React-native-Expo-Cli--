@@ -1,44 +1,42 @@
-import {
-  Image,
-  ImageBackground,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import React, { useState } from "react";
+import { Image, SafeAreaView, View } from "react-native";
+import React, { Children, useState } from "react";
 import styles from "./styles";
-import { COLORS, SIZES } from "../../theme";
 import Bacimage from "../../Assets/img/bg_login.png";
-import FormLogin from "../../pages/Pages1Auth/Login/components/Form";
+import Bacimage1 from "../../Assets/img/bg_login1.png";
+
 import { Txt } from "../utils";
-const AuthLayout = () => {
+import Space from "../Space";
+import { StatusBar } from "expo-status-bar";
+import { COLORS } from "../../theme";
+const AuthLayout = ({ children, isFocused }) => {
   const [error, seterror] = useState(false);
   const [type, settype] = useState(false);
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#ccc",
-    padding:20 }}>
-      {/* <StatusBar backgroundColor={COLORS.primary} barStyle="light-content" /> */}
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#ccc", padding: 20 }}>
+      <StatusBar backgroundColor={'transparent'}   style="light"  />
+
       <Image
         style={styles.ImageBackground}
-        source={Bacimage}
+        source={isFocused ? Bacimage : Bacimage1}
         resizeMode="stretch"
       />
-      <View style={{ flex: 1 / 3, backgroundColor: "#eee2",
-        justifyContent:'flex-end'
-       }}>
+      <Space space={30} />
+
+      <View
+        style={{
+          flex: 1 / 5,
+          justifyContent: "flex-end",
+        }}
+      >
         <Txt style={styles.headerTitle}>
           Je me connecte à mon espace Livreur
         </Txt>
       </View>
+      {children}
 
-      <View style={{ flex: 1 / 2, backgroundColor: "#ddd6" }}>
-      <FormLogin /> 
-      </View>
-      <View style={{ flex: 1 / 3, backgroundColor: "#fee2" }}></View>
-    </View>
+      <View style={{ flex: 1 / 3,  }}></View>
+    </SafeAreaView>
   );
 };
 

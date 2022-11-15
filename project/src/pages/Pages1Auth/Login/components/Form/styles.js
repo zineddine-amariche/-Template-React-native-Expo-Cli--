@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   Input: {
-    color: COLORS.Noir,
+    color: COLORS.green1,
     fontSize: 16,
     fontFamily: "RobotoBold",
     flex: 1,
